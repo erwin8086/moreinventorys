@@ -1,9 +1,15 @@
+if minetest.get_modpath("intllib") then
+		S = intllib.Getter()
+	else
+		S = function(s) return s end
+end
+
 minetest.register_node("moreinventorys:digable_chest", {
 	tiles = {"default_chest_top.png", "default_chest_top.png", "default_chest_side.png",
 		"default_chest_side.png", "default_chest_side.png", "default_chest_front.png"},
 	groups = {choppy=2},
 	stack_max=1,
-	description = "Digable Chest",
+	description = S("Digable Chest"),
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
 		local inv = meta:get_inventory()

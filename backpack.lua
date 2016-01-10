@@ -1,3 +1,9 @@
+if minetest.get_modpath("intllib") then
+		S = intllib.Getter()
+	else
+		S = function(s) return s end
+end
+
 local count=0
 local inv = minetest.create_detached_inventory("moreinventorys_backpack", {
 	allow_move = function(inv, form_list, from_index, to_list, to_index, count, player)
@@ -49,7 +55,7 @@ local inv = minetest.create_detached_inventory("moreinventorys_backpack", {
 
 })
 minetest.register_craftitem("moreinventorys:backpack", {
-	description = "Backpack",
+	description = S("Backpack"),
 	stack_max=1,
 	inventory_image = "default_chest_front.png",
 	on_use = function(stack, user, pt)

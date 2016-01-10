@@ -1,3 +1,9 @@
+if minetest.get_modpath("intllib") then
+		S = intllib.Getter()
+	else
+		S = function(s) return s end
+end
+
 local save_password = function(name, inv)
 	local filename = minetest.get_worldpath().."/moreinventorys_password_"..name
 	local file = io.open(filename, "r")
@@ -66,7 +72,7 @@ local inv = minetest.create_detached_inventory("moreinventorys_password", {
 })
 
 minetest.register_node("moreinventorys:password_chest", {
-	description = "Password Chest",
+	description = S("Password Chest"),
 	tiles = {"default_chest_top.png", "default_chest_top.png", "default_chest_side.png",
 		"default_chest_side.png", "default_chest_side.png", "default_chest_front.png"},
 	groups={choppy=2},
@@ -81,7 +87,7 @@ minetest.register_node("moreinventorys:password_chest", {
 		local meta = minetest.get_meta(pos)
 		if fields.ok ~= nil and fields.name ~= "" and fields.password ~= "" then
 			if fields.name:match("%W") or fields.password:match("%W") then
-				minetest.chat_send_player(sender:get_player_name(), "Error name or password contains not allowed character use a_zA_Z0_9!")
+				minetest.chat_send_player(sender:get_player_name(), S("Error name or password contains not allowed character use a_zA_Z0_9!"))
 				return nil
 			end
 			if get_password(fields.name) == nil then
@@ -93,7 +99,7 @@ minetest.register_node("moreinventorys:password_chest", {
 					"list[detached:moreinventorys_password;"..fields.name..";0,0;8,4;]"..
 					"list[current_player;main;0,5;8,4;]")
 			else
-				minetest.chat_send_player(sender:get_player_name(), "Error incorrect Password")
+				minetest.chat_send_player(sender:get_player_name(), S("Error incorrect Password"))
 			end
 		end
 	end,

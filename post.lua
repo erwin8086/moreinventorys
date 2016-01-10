@@ -1,3 +1,9 @@
+if minetest.get_modpath("intllib") then
+		S = intllib.Getter()
+	else
+		S = function(s) return s end
+end
+
 local save_inbox = function(name, inv)
 	local filename = minetest.get_worldpath().."/moreinventorys_inbox_"..name
 	local file = io.open(filename, "w")
@@ -59,7 +65,7 @@ end)
 
 minetest.register_chatcommand("inbox", {
 	params = "",
-	description = "Open the INBOX",
+	description = S("Open the INBOX"),
 	func = function(name, param)
 		local player = minetest.get_player_by_name(name)
 		if not player then
@@ -73,7 +79,7 @@ minetest.register_chatcommand("inbox", {
 
 minetest.register_chatcommand("send", {
 	params = "<player>",
-	description = "Send Stuff to players INBOX.",
+	description = S("Send Stuff to players INBOX."),
 	func = function(name, param)
 		local player = minetest.get_player_by_name(name)
 		if not player then
@@ -97,7 +103,7 @@ minetest.register_globalstep(function(dtime)
 		for _,player in ipairs(minetest.get_connected_players()) do
 			local name = player:get_player_name()
 			if not inv:is_empty(name) then
-				minetest.chat_send_player(name, "You have post. use /inbox to check.")
+				minetest.chat_send_player(name, S("You have post. use /inbox to check."))
 			end
 		end
 		timer=0

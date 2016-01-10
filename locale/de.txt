@@ -1,0 +1,9 @@
+Backpack=Rucksack
+Open the INBOX=Öffne die INBOX
+Send Stuff to players INBOX.=Sende Zeug an player.
+You have post. use /inbox to check.=Sie haben Post. Nutzen sie /inbox um sich zu informieren.
+Player Chest=Spieler Kiste
+Password Chest=Kennwort Kiste
+Error name or password contains not allowed character use a_zA_Z0_9!=Fehler Name oder Passwort enthalten unerlaubte Zeichen. Nutzen Sie a_zA_Z0_9.
+Error incorrect Password=Fehler falsches Kennwort
+Digable Chest=Abbaubare Kiste
