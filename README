@@ -1,3 +1,55 @@
 This is a mod for Minetest.
 Its Add moreinventories:
 backpack, password chest, player chest, digable chest and a post system.
+
+crafts:
+*******
+
+|W| |W|
+|W|C|W| = Backpack
+|W| |W|
+W = Wood
+C = Digable chest
+
+|C|C|C|
+|C| |C| = Password chest
+|C|C|C|
+C = Chest
+
+|C|C| = Digable chest
+C = Chest
+
+|C| = Player chest
+C = Password chest
+
+backpack:
+*********
+left-click to open.
+
+password chest:
+***************
+enter name and password to connect/create to network.
+if name is new a new network is createt.
+if name is old you connect to exist network.
+if password is incorrect you cannot connect to network.
+All password chest with the same name and correct password are connected.
+
+digable chest:
+**************
+Is a chest you can dig even if full.
+If you dig inventory keeps.
+
+Player chest:
+*************
+Is a chest for you.
+If you open any player chest, you see the same inventory.
+Is save, because only you can access to inventory.
+
+Post:
+*****
+You can access your inbox use /inbox.
+You can only take items from your inbox.
+
+You can send items to friends(on the same server) use /send <name>.
+<name> is the name of your friend.
+If you have post you see a message on chat.
